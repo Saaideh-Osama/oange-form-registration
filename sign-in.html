@@ -1,0 +1,183 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .orange {
+            display: grid;
+            grid-template-columns: 500px auto;
+            gap: 10px;
+        }
+
+        #buttonn {
+            border:1px solid black ;
+            width: 500px;
+            text-align: center;
+            background-color: #ff7900;
+            height: 40px;
+            
+            
+        }
+        button2 {
+            border:1px solid black ;
+            width: 500px;
+            text-align: center;
+        }
+        .margin{
+            margin-top:20px ;
+            margin-left: 250px;
+        }
+        #buttonn:hover {
+            border:1px solid black ;
+            width: 500px;
+            text-align: center;
+            background-color: black;
+            color: white;height: 40px;
+           
+            
+        }
+        .email{
+            padding:5px 5px 5px;
+            width: 500px;
+           
+        }
+        .mobile{
+            padding:5px 5px 5px ;
+            width: 500px;
+        }
+        .password{
+            padding:5px 5px 5px ;
+            width: 500px;
+        }
+        i {
+    margin-left: -30px;
+    cursor: pointer;
+}
+      
+    </style>
+</head>
+
+<body>
+    <div class="orange">
+
+        <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+            <div class="carousel-inner">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="10.1.jpg" class="d-block w-100" alt="..." width="300px" height="800px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="10.2.jpg" class="d-block w-100" alt="..." width="300px" height="800px">
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <nav class="navbar navbar-expand-lg bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand"
+                            href="file:///C:/Users/user/Desktop/hello%20world%202/jameeeeel.html#"><img src="white.png"
+                                width="250px" height="70px"></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#"><b>Help</b></a>
+                                    
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><b>Terms & Conditions</b></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="margin">
+                <h1><b>Sign in</b></h1>
+                <br>
+                <div >
+                    <label><b>Email address</b></label>
+                    <br>
+                    <input type="email" class="email" id="emails" required>
+                    <div id="emailmessage"></div>
+                    <p>eg: username@domain.com</p>
+                </div>
+                
+                <br>
+                <div>
+                    <label><b>Create Password</b></label>
+                    <br>
+                    <input type="password" class="password" id="pass" required>
+                    <i  class="bi bi-eye-slash" id="togglePassword"></i>
+                </div>
+                <br>
+                <div>
+                    <button type="submit" id="buttonn" onclick="loginUser()"> Log in</button>
+                    <br>
+                </div>
+            </div>
+        </div>
+ 
+   </div>
+   <script >
+     function loginUser() {
+      let ToF = false;
+        let uIndex = null;
+        let formData = JSON.parse(localStorage.getItem('formData')) || [];
+
+        formData.forEach((element,arrayIndex) => {
+          if(element.mail==emails.value){
+            ToF = true;
+            uIndex = arrayIndex;
+          }
+        });
+
+        if (ToF && formData[uIndex].pass==pass.value) {
+
+          console.log("logged in successfuly ");
+          sessionStorage.mail = formData[uIndex].email;
+          sessionStorage.pass =formData[uIndex].password;
+          window.open("https://www.orange.jo/en/pages/default.aspx")
+        
+
+        }else if(ToF && formData[uIndex].pass !==pass.value){
+
+          console.log("Wrong password Pleas tray again");
+         
+        }else if(!ToF){
+
+          console.log("account not found Sign up please");
+
+          
+        }else{
+          console.log("hey!");
+        }
+       
+  }
+   </script> 
+</body>
+
+</html>
